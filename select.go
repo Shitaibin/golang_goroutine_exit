@@ -11,6 +11,7 @@ func worker(stopCh <-chan struct{}) {
 
 		t := time.NewTicker(time.Millisecond * 500)
 
+		// Using stop channel explicit exit
 		for {
 			select {
 			case <-stopCh:
@@ -31,5 +32,17 @@ func main() {
 
 	time.Sleep(time.Second * 2)
 	close(stopCh)
+
+	// Wait some print
+	time.Sleep(time.Second)
 	fmt.Println("main exit")
 }
+
+// ➜  golang_for_select git:(master) ✗ go run select.go
+// Working .
+// Working .
+// Working .
+// Working .
+// Recv stop signal
+// worker exit
+// main exit
