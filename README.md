@@ -1,4 +1,4 @@
-示例如何优雅的退出使用for-select的goroutine
+Golang并发模型：合理退出并发协程
 =====
 
 ## 目录说明
